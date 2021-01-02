@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 
+//Components
 import QuestionCard from './components/QuestionCard';
+import {fetchQuestions} from './API';
+
+//Types
+import {Difficulty} from './API';
 
 // the number of total questions;
 const TOTAL_QUESTIONS = 10;
@@ -26,6 +31,8 @@ function App()
   //  the state set indicating if the game is done or not;
   const[gameOver,setGameOver] = useState(true);
 
+  console.log(fetchQuestions(TOTAL_QUESTIONS,Difficulty.EASY));
+
   const startTrivia = async function myFunc()
   {
 
@@ -50,7 +57,7 @@ function App()
             </button>
             <p className="score">Score:</p>
             <p>Loading Questions</p>
-
+{/* 
             <QuestionCard>
               questionNumber={number + 1};
               totalQuestions = {TOTAL_QUESTIONS};
@@ -59,7 +66,7 @@ function App()
               userGuess = {userAnswers ? userAnswers[number] : undefined};
               returnBack={checkAnswer};
 
-            </QuestionCard>
+            </QuestionCard> */}
 
             <button className="next" onClick={nextQuestion}> Next Question</button>
 
